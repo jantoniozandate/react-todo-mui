@@ -11,7 +11,7 @@ export default function TodoLoader() {
 				justifyContent: 'center',
 			}}
 		>
-			<CircularProgress />
+			<CircularProgress/>
 		</div>
 	)
 }

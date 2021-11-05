@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 
-import { Container, CircularProgress, Typography, Box } from '@mui/material'
+import { Container, Button, Typography, Box } from '@mui/material'
 
 import { getTodo, updateTodo } from '../../services/api'
 
 import TodoTable from './todo.table'
 import TodoLoader from './todo.loader'
+import { Add as AddIcon } from '@mui/icons-material'
 
 export default function Todo() {
 	const [list, setList] = useState([])
@@ -57,10 +58,7 @@ export default function Todo() {
 		setPage(0)
 	}
 
-	if (isLoading)
-		return (
-			<TodoLoader />
-		)
+	if (isLoading) return <TodoLoader />
 
 	return (
 		<Container>
@@ -73,10 +71,17 @@ export default function Todo() {
 					justifyContent: 'center',
 				}}
 			>
-				<Box>
-					<Typography fontSize="2rem" fontWeight="700" fontFamily="Segoe UI">
-						Lista de tareas
-					</Typography>
+				<Box display="flex" marginTop="10">
+					<Box sx={{ flexGrow: 1 }}>
+						<Typography fontSize="2rem" fontWeight="700" fontFamily="Segoe UI">
+							Lista de tareas
+						</Typography>
+					</Box>
+					<Box>
+						<Button variant="outlined" startIcon={<AddIcon />}>
+							Agregar
+						</Button>
+					</Box>
 				</Box>
 				<Box borderWidth="1px" borderRadius="xl">
 					<TodoTable
