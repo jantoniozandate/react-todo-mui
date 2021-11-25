@@ -9,7 +9,7 @@ import '@fontsource/roboto/700.css'
 import Todo from './components/todo/todo'
 
 ReactDOM.render(
-	<div style={{ height: '100vh' }}>
+	<div >
 		<StyledEngineProvider injectFirst>
 			<Todo />
 		</StyledEngineProvider>

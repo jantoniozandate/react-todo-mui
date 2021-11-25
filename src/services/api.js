@@ -21,10 +21,21 @@ export async function getTodo() {
 export async function updateTodo(todo) {
 	try {
 		const result = await axios.put(URL_API + '/todos/' + todo.id, todo)
-    return [result.data, null]
+		return [result.data, null]
 	} catch (error) {
-    return [null, error]
-  }
+		return [null, error]
+	}
+}
+
+export async function addTodo({title, completed}) {
+	try {
+		const result = await axios.post(URL_API + '/todos', {
+			title, completed
+		})
+		return [result.data, null]
+	} catch (error) {
+		return [null, error]
+	}
 }
 
 async function getUsers() {

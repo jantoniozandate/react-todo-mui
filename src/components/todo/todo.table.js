@@ -23,7 +23,8 @@ export default function TodoTable(props) {
     pageSize,
     handleCheckboxChange,
     handleChangePage,
-    handleChangeRowsPerPage
+    handleChangeRowsPerPage,
+    handleActionEdit
   } = props;
 
   return (
@@ -63,7 +64,7 @@ export default function TodoTable(props) {
                   />
                 </TableCell>
                 <TableCell align="right">
-                  <IconButton><EditIcon /></IconButton>
+                  <IconButton onClick={() => handleActionEdit(indexItem)}><EditIcon /></IconButton>
                 </TableCell>
               </TableRow>
             ))}
